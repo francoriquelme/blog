@@ -9,12 +9,8 @@ class PostsController < ApplicationController
 
     def new
         @post = Post.new
-    end 
-    
-    def edit
-        @post = Post.find(params[:id])
     end
-    
+
     def create
         @post = Post.new(params)
         if @post.save
@@ -31,11 +27,11 @@ class PostsController < ApplicationController
             render :edit, status: :unprocessable_entity
         end
     end
-    
+
     def destroy
         @post = Post.find(params[:id])
         @post.destroy
         redirect_to posts_url, notice: "Post was successfully destroyed."
-    end
-end
+    end   
+end   
     
